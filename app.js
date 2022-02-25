@@ -16,6 +16,7 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
+      
       break;
       default:
     app(people); // restart app
@@ -79,7 +80,7 @@ function searchByName(people){
     }
   })
   // TODO: find the person single person object using the name they entered.
-  return foundPerson;
+  return foundPerson[0];
 }
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
@@ -88,7 +89,6 @@ function searchByEyeColor(people){
 }
 
 //TODO: add other trait filter functions here.
-
 
 
 //#endregion
