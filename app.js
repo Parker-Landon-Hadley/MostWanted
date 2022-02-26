@@ -45,6 +45,12 @@ function mainMenu(person, people){
       let displayInfo = "Name: " + person.firstName + " " + person.lastName + "\n";
       displayInfo += "ID: " + person.id + "\n";
       displayInfo += "DOB: " + person.dob + "\n";
+      displayInfo += "Gender: " + person.gender + "\n";
+      displayInfo += "Height: " + person.height + "\n";
+      displayInfo += "Weight: " + person.weight + "\n";
+      displayInfo += "Eye Color: " + person.eyeColor + "\n";
+      displayInfo += "Occupation: " + person.occupation + "\n";
+    
       alert (displayInfo);
     
     case "family":
