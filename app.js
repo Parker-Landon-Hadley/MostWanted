@@ -55,7 +55,23 @@ function mainMenu(person, people){
     
     case "family":
     // TODO: get person's family
-    break;
+    // get persons currentSpouse ID
+    // match currentSpouse ID to persons ID
+    // return persons name
+
+      //let familiesId = promptFor("Family members ID number?", autoValid);
+    
+      let nameById = people.filter(function(potentialMatch){
+        if(potentialMatch.currentSpouse == person.currentSpouse){
+          return true;
+        }
+        else{
+          return false;
+        }
+      })
+      // TODO: find the person single person object using the name they entered.
+      alert(nameById[0]);
+    
     case "descendants":
     // TODO: get person's descendants
     break;
