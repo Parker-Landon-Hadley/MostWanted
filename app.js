@@ -42,7 +42,11 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    break;
+      let displayInfo = "Name: " + person.firstName + " " + person.lastName + "\n";
+      displayInfo += "ID: " + person.id + "\n";
+      displayInfo += "DOB: " + person.dob + "\n";
+      alert (displayInfo);
+    
     case "family":
     // TODO: get person's family
     break;
