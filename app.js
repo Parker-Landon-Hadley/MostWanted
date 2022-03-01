@@ -104,6 +104,18 @@ function searchByTrait(people){
       searchResults =searchByHeight(searchResults);
       displayPeople(searchResults);
       break;
+    case "3":
+      searchResults =searchByWeight(searchResults);
+      displayPeople(searchResults);
+      break;
+    case "4":
+      searchResults =searchByGender(searchResults);
+      displayPeople(searchResults);
+      break;
+    case "5":
+      searchResults =searchByDateOfBirth(searchResults);
+      displayPeople(searchResults);
+      break;
   }
 
 }
@@ -123,9 +135,9 @@ return foundEyeColor
 }
 
 function searchByHeight(people){
-  let personsHeight = promptFor ("What is the person's height in inches?", autoValid);
+  let height = promptFor ("What is the person's height in inches?", autoValid);
   let foundPersonsHeight = people.filter(function(potentialPersonsHeightMatch){
-    if(potentialPersonsHeightMatch.personsHeight === personsHeight){
+    if(potentialPersonsHeightMatch.height == height){
     return true;
   }
   else{
@@ -133,6 +145,45 @@ function searchByHeight(people){
   }
 })
 return foundPersonsHeight
+}
+
+function searchByWeight(people){
+  let weight = promptFor ("What is the person's weight in pounds?", autoValid);
+  let foundPersonsWeight = people.filter(function(potentialPersonsWeightMatch){
+    if(potentialPersonsWeightMatch.weight == weight){
+    return true;
+  }
+  else{
+    return false;
+  }
+})
+return foundPersonsWeight
+}
+
+function searchByGender(people){
+  let gender = promptFor ("What is the person's gender?", autoValid);
+  let foundPersonsGender = people.filter(function(potentialPersonsGenderMatch){
+    if(potentialPersonsGenderMatch.gender === gender){
+    return true;
+  }
+  else{
+    return false;
+  }
+})
+return foundPersonsGender
+}
+
+function searchByDateOfBirth(people){
+  let dob = promptFor ("What is the person's date of birth?", autoValid);
+  let foundPersonsDateOfBirth = people.filter(function(potentialPersonsDateOfBirthMatch){
+    if(potentialPersonsDateOfBirthMatch.dob === dob){
+    return true;
+  }
+  else{
+    return false;
+  }
+})
+return foundPersonsDateOfBirth
 }
 //DONE: add other trait filter functions here.
 
