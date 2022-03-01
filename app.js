@@ -220,22 +220,12 @@ function displayPerson(person){
   alert(displayInfo);
 }
 
-// function displayFamily(person, people){
-//   let spouseResults = spouseSearch(person, people);
-//   let currentSpouse = "Current spouse: " + spouseResults.firstName + " " + spouseResults.lastName;
-//   alert(currentSpouse);
-// }
-// //  persons currentSpouse ID
-//   function displaySpouse(people) {
-//   let spouseSearch = people.filter(function(potentialMatch) {
-//     if(potentialMatch.id === currentSpouse) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   })
-// return spouseSearch;
-// }
+function displayFamily(people){
+  let displayInfo = people.firstName + " " + people.lastName + " " + "Is currently married to \n";
+  alert(displayInfo)
+}
+
+// displayFamily // displaySpouse //
 
 //#endregion
 
