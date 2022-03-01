@@ -41,49 +41,21 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-    // TODO: get person's info
-      let displayInfo = "Name: " + person.firstName + " " + person.lastName + "\n";
-      displayInfo += "ID: " + person.id + "\n";
-      displayInfo += "DOB: " + person.dob + "\n";
-      displayInfo += "Gender: " + person.gender + "\n";
-      displayInfo += "Height: " + person.height + "\n";
-      displayInfo += "Weight: " + person.weight + "\n";
-      displayInfo += "Eye Color: " + person.eyeColor + "\n";
-      displayInfo += "Occupation: " + person.occupation + "\n";
-    
-      alert (displayInfo);
-    
+    displayPerson(person)
+    break;
     case "family":
-    // TODO: get person's family
-    // get persons currentSpouse ID
-    // match currentSpouse ID to persons ID
-    // return persons name
-
-      //let familiesId = promptFor("Family members ID number?", autoValid);
-    
-      let nameById = people.filter(function(potentialMatch){
-        if(potentialMatch.currentSpouse == person.currentSpouse){
-          return true;
-        }
-        else{
-          return false;
-        }
-      })
-      // TODO: find the person single person object using the name they entered.
-      alert(nameById[0]);
-    
-    case "descendants":
-    // TODO: get person's descendants
+    displaySpouse(person, people)
     break;
     case "restart":
-    app(people); // restart
+    app(people);
     break;
     case "quit":
-    return; // stop execution
+    return;
     default:
-    return mainMenu(person, people); // ask again
+    return mainMenu(person, people);
   }
 }
+   
 
 //#endregion
 
@@ -134,12 +106,22 @@ function displayPeople(people){
 function displayPerson(person){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
+  let displayInfo = "Name: " + person.firstName + " " + person.lastName + "\n";
+      displayInfo += "ID: " + person.id + "\n";
+      displayInfo += "DOB: " + person.dob + "\n";
+      displayInfo += "Gender: " + person.gender + "\n";
+      displayInfo += "Height: " + person.height + "\n";
+      displayInfo += "Weight: " + person.weight + "\n";
+      displayInfo += "Eye Color: " + person.eyeColor + "\n";
+      displayInfo += "Occupation: " + person.occupation + "\n";
+    
   // TODO: finish getting the rest of the information to display.
-  alert(personInfo);
+  alert(displayInfo);
 }
 
+// get persons currentSpouse ID
+// match currentSpouse ID to persons ID
+// return persons name
 //#endregion
 
 
