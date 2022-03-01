@@ -101,21 +101,23 @@ function searchByTrait(people){
       displayPeople(searchResults);
       break;
     case "2":
-      searchResults =searchByHeight(searchResults);
+      searchResults = searchByHeight(searchResults);
       displayPeople(searchResults);
       break;
     case "3":
-      searchResults =searchByWeight(searchResults);
+      searchResults = searchByWeight(searchResults);
       displayPeople(searchResults);
       break;
     case "4":
-      searchResults =searchByGender(searchResults);
+      searchResults = searchByGender(searchResults);
       displayPeople(searchResults);
       break;
     case "5":
-      searchResults =searchByDateOfBirth(searchResults);
+      searchResults = searchByDateOfBirth(searchResults);
       displayPeople(searchResults);
       break;
+    default:
+    alert("Invalid Entry");
   }
 
 }
