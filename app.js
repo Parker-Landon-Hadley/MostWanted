@@ -87,7 +87,7 @@ function searchByName(people){
       return false;
     }
   })
-  // DONE: find the person single person object using the name they entered.
+
   return foundPerson;
 }
 
@@ -98,6 +98,10 @@ function searchByTrait(people){
   switch(personsTrait){
     case "1":
       searchResults = searchByEyeColor(searchResults);
+      displayPeople(searchResults);
+      break;
+    case "2":
+      searchResults =searchByHeight(searchResults);
       displayPeople(searchResults);
       break;
   }
@@ -118,6 +122,18 @@ function searchByEyeColor(people){
 return foundEyeColor
 }
 
+function searchByHeight(people){
+  let personsHeight = promptFor ("What is the person's height in inches?", autoValid);
+  let foundPersonsHeight = people.filter(function(potentialPersonsHeightMatch){
+    if(potentialPersonsHeightMatch.personsHeight === personsHeight){
+    return true;
+  }
+  else{
+    return false;
+  }
+})
+return foundPersonsHeight
+}
 //DONE: add other trait filter functions here.
 
 
@@ -151,17 +167,17 @@ function displayPerson(person){
 }
 
 // get persons currentSpouse ID
-function displaySpouse(person, people){
-let currentSpouse = people.filter(function(currentSpouse){
-  if(person[0].currentSpouse === currentSpouse.id){
-    return true;
-  }
-  else{
-    return false;
-  }
-})
-alert(person[0].firstName + " " + person[0].lastName + " " + "is married to" + " " + currentSpouse[0].firstName + " " + currentSpouse[0].lastName);
-}
+//function displaySpouse(person, people){
+//let currentSpouse = people.filter(function(currentSpouse){
+ // if(person[0].currentSpouse === currentSpouse.id){
+ //   return true;
+  //}
+  //else{
+  //  return false;
+  //}
+//})
+//alert(person[0].firstName + " " + person[0].lastName + " " + "is married to" + " " + currentSpouse[0].firstName + " " + currentSpouse[0].lastName);
+//}
 // match currentSpouse ID to persons ID
 // return persons name
 //#endregion
