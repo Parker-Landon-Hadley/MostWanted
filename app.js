@@ -74,7 +74,7 @@ function mainMenu(person, people){
 /////////////////////////////////////////////////////////////////
 //#region 
 
-//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
+    // Function used to search through an array of people to find matching first and last name and return a SINGLE person object.//
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", autoValid);
   let lastName = promptFor("What is the person's last name?", autoValid);
@@ -91,7 +91,7 @@ function searchByName(people){
   return foundPerson;
 }
 
-//unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
+    // Function to search through an array of people to find list by traits //
 function searchByTrait(people){
   let personsTrait = promptFor ("Which trait would you like to search by?\n Enter 1 to search by eye-color.\n Enter 2 to search by height.\n Enter 3 to search by weight.\n Enter 4 to search by gender.\n Enter 5 to search by date of birth.\n", autoValid)
   let searchResults = people;
@@ -122,6 +122,7 @@ function searchByTrait(people){
 
 }
 
+    // Trait finding function //
 
 function searchByEyeColor(people){
   let eyeColor = promptFor ("What is the person's eye color?", autoValid);
@@ -219,20 +220,23 @@ function displayPerson(person){
   alert(displayInfo);
 }
 
-// get persons currentSpouse ID
-//function displaySpouse(person, people){
-//let currentSpouse = people.filter(function(currentSpouse){
- // if(person[0].currentSpouse === currentSpouse.id){
- //   return true;
-  //}
-  //else{
-  //  return false;
-  //}
-//})
-//alert(person[0].firstName + " " + person[0].lastName + " " + "is married to" + " " + currentSpouse[0].firstName + " " + currentSpouse[0].lastName);
-//}
-// match currentSpouse ID to persons ID
-// return persons name
+// function displayFamily(person, people){
+//   let spouseResults = spouseSearch(person, people);
+//   let currentSpouse = "Current spouse: " + spouseResults.firstName + " " + spouseResults.lastName;
+//   alert(currentSpouse);
+// }
+// //  persons currentSpouse ID
+//   function displaySpouse(people) {
+//   let spouseSearch = people.filter(function(potentialMatch) {
+//     if(potentialMatch.id === currentSpouse) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   })
+// return spouseSearch;
+// }
+
 //#endregion
 
 
