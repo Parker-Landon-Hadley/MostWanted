@@ -8,49 +8,23 @@
 
 // app is the function called to start the entire application
 function app(people){
-  
-  let searchResults = people
-  while (searchResults.length > 1) {
-    let searchType = promptFor('1 Search by name. 2 Search by eye-color. 3 Search by gender. Search by occupation. 5 Search by weight. 6 Search by height.',autoValid)
-    
+  let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let searchResults;
   switch(searchType){
-    case '1':
+    case 'yes':
       searchResults = searchByName(people);
       break;
-    case '2':
-      searchResults = searchByEyeColor(searchResults);
-      displayPeople(searchResults);
+    case 'no':
+      searchResults = searchByTrait(people);
       break;
-      //return app(eyeResults);
-    case '3':  
-      searchResults = searchByGender(searchResults);
-      displayPeople(searchResults);
-      break;
-      //return app(genderResults);
-    case '4':  
-      searchResults = searchByOccupation(searchResults);
-      displayPeople(searchResults);
-      break;
-      //return app(occupationResults);
-    case '5':  
-      searchResults = searchByWeight(searchResults);
-      displayPeople(searchResults);
-      break;
-      //return app(weightResults);
-    case '6': 
-      searchResults = searchByHeight(searchResults);
-      displayPeople(searchResults);
-      break;
-      //return app(heightResults);
       default:
     app(people); // restart app
       break;
   }
-}
 
 
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults, people);
+  mainMenu(searchResults[0], people);
   
 
 }
@@ -69,7 +43,7 @@ function mainMenu(person, people){
 
 
 
-  let displayOption = promptFor("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let displayOption = promptFor("Found " + person.firstName + " " + person.lastName + " Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
   
   switch(displayOption){
     case "info":
@@ -113,16 +87,38 @@ function searchByName(people){
       return false;
     }
   })
-  // TODO: find the person single person object using the name they entered.
+  // DONE: find the person single person object using the name they entered.
   return foundPerson;
 }
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
-function searchByEyeColor(people){
+function searchByTrait(people){
+  let personsTrait = promptFor ("Which trait would you like to search by?\n Enter 1 to search by eye-color.\n Enter 2 to search by height.\n Enter 3 to search by weight.\n Enter 4 to search by gender.\n Enter 5 to search by date of birth.\n", autoValid)
+  let searchResults = people;
+  switch(personsTrait){
+    case "1":
+      searchResults = searchByEyeColor(searchResults);
+      displayPeople(searchResults);
+      break;
+  }
 
 }
 
-//TODO: add other trait filter functions here.
+
+function searchByEyeColor(people){
+  let eyeColor = promptFor ("What is the person's eye color?", autoValid);
+  let foundEyeColor = people.filter(function(potentialEyeColorMatch){
+    if(potentialEyeColorMatch.eyeColor === eyeColor){
+    return true;
+  }
+  else{
+    return false;
+  }
+})
+return foundEyeColor
+}
+
+//DONE: add other trait filter functions here.
 
 
 //#endregion
@@ -142,19 +138,16 @@ function displayPeople(people){
 function displayPerson(person){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  let displayInfo = "Name: " + person[0].firstName + " " + person.lastName + "\n";
-      displayInfo += "ID: " + person[0].id + "\n";
-      displayInfo += "DOB: " + person[0].dob + "\n";
-      displayInfo += "Gender: " + person[0].gender + "\n";
-      displayInfo += "Height: " + person[0].height + "\n";
-      displayInfo += "Weight: " + person[0].weight + "\n";
-      displayInfo += "Eye Color: " + person[0].eyeColor + "\n";
-      displayInfo += "Occupation: " + person[0].occupation + "\n";
-      displayInfo += "Parents: " + person[0].parents + "\n";
-      displayInfo += "Current Spouse: " + person[0].currentSpouse + "\n";
+  let displayInfo = "Name: " + person.firstName + " " + person.lastName + "\n";
+      displayInfo += "ID: " + person.id + "\n";
+      displayInfo += "DOB: " + person.dob + "\n";
+      displayInfo += "Gender: " + person.gender + "\n";
+      displayInfo += "Height: " + person.height + "\n";
+      displayInfo += "Weight: " + person.weight + "\n";
+      displayInfo += "Eye Color: " + person.eyeColor + "\n";
+      displayInfo += "Occupation: " + person.occupation + "\n";
     
-  // TODO: finish getting the rest of the information to display.
-  alert(person);
+  alert(displayInfo);
 }
 
 // get persons currentSpouse ID
