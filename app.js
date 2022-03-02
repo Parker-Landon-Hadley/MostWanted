@@ -220,12 +220,16 @@ function displayPerson(person){
   alert(displayInfo);
 }
 
-function displayFamily(people){
-  let displayInfo = people.firstName + " " + people.lastName + " " + "Is currently married to \n";
-  alert(displayInfo)
+// displayFamily //
+function displayFamily(person, people){
+  let personMatch = people.filter(function(family){
+    if(person.currentSpouse === family.id){
+      return person.firstName + " " + person.filter
+    }
+  })
+   
+  display(personMatch[current.spouse]);
 }
-
-// displayFamily // displaySpouse //
 
 //#endregion
 
@@ -267,8 +271,21 @@ function autoValid(input){
 
 //Unfinished validation function you can use for any of your custom validation callbacks.
 //can be used for things like eye color validation for example.
-function customValidation(input){
-  
-}
+function customValidation(input){}
+
+// function getNamesById(person){
+//   let returnNames = "";
+//     data.map(function (potentialMatch){
+//       for(let i = 0; i < person; i++){
+//         if(Number)
+//         if(returnNames.length){
+//         returnNames += ", ";
+//       }
+//       returnNames += potentialMatch.firstName + " " + potentialMatch.lastName;
+//       }
+//     }
+//   });
+//   return returnNames;
+
 
 //#endregion
