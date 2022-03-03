@@ -205,9 +205,8 @@ function displayPeople(people){
   }).join("\n"));
 }
 
+// Display #1 INFO
 function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
   let displayInfo = "Name: " + person.firstName + " " + person.lastName + "\n";
       displayInfo += "ID: " + person.id + "\n";
       displayInfo += "DOB: " + person.dob + "\n";
@@ -220,7 +219,7 @@ function displayPerson(person){
   alert(displayInfo);
 }
 
-// displayFamily //
+// Display #2 FAMILY //
 function displayFamily(person, people){
   displaySpouse(person, people);
   displayParents(person, people);
@@ -252,31 +251,16 @@ function displayParents(person,people){
   })
 displayPeople(personMatch);
 }
-//#endregion
+
 
 function displaySiblings(person, people){
-  let personMatch = people.filter(function(family){
-    if (findSiblings(family, person))
+  let sameParents = people.filter(function(parentId){
+    if(parentId.parents.includes(person.parents[0]) && parentId.id !== person.id){
 
     return true;
-    
-    else{
-    return false;
-    }  
+    }
   })
-displayPeople(personMatch);
-}
-
-//Validation functions.
-//Functions to validate user input.
-
-function findSiblings(person, people){
-  let sameParents = people.parents.filter(function(parentId){
-    if(person.parents.includes(parentId))
-
-    return true;
-  });
-  return sameParents.length > 0;
+  displayPeople(sameParents);
 }
 
 /////////////////////////////////////////////////////////////////
