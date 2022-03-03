@@ -236,10 +236,9 @@ function displaySpouse(person,people){
       return false;
     }
  })
- displayPeople(personMatch);
-
-//find family [], that [] use it as an argument to displayPeople()
+displayPeople(personMatch);
 }
+//find family [], that [] use it as an argument to displayPeople()
 
 function displayParents(person,people){
   let personMatch = people.filter(function(family){
@@ -259,6 +258,16 @@ displayPeople(personMatch);
 
 //Validation functions.
 //Functions to validate user input.
+
+function findSiblings(person, people){
+  let sameParents = people.parents.filter(function(parentId){
+    if(person.parents.includes(parentId))
+
+    return true;
+  });
+  return sameParents.length != 0;
+}
+
 /////////////////////////////////////////////////////////////////
 //#region 
 
