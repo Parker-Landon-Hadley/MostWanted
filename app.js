@@ -254,13 +254,26 @@ displayPeople(personMatch);
 
 
 function displaySiblings(person, people){
-  let sameParents = people.filter(function(parentId){
+  let personMatch = people.filter(function(parentId){
     if(parentId.parents.includes(person.parents[0]) && parentId.id !== person.id){
 
     return true;
     }
   })
-  displayPeople(sameParents);
+  displayPeople(personMatch);
+}
+ 
+function displayDescendants(person, people){
+  let personId = person.id;
+  let personMatch = people.filter(function(person){
+  if(person.parents.includes(personId)){
+
+      return true;
+    }
+  })
+
+    displayPeople(personMatch);
+      
 }
 
 /////////////////////////////////////////////////////////////////
