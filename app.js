@@ -53,7 +53,7 @@ function mainMenu(person, people){
     displayFamily(person, people)
     break;
     case "descendants":
-    displayParents(person, people)
+    displayDescendants(person, people)
     break;
     case "restart":
     app(people);
@@ -224,6 +224,7 @@ function displayPerson(person){
 function displayFamily(person, people){
   displaySpouse(person, people);
   displayParents(person, people);
+  displaySiblings(person, people);
 }
 
 function displaySpouse(person,people){
@@ -238,7 +239,6 @@ function displaySpouse(person,people){
  })
 displayPeople(personMatch);
 }
-//find family [], that [] use it as an argument to displayPeople()
 
 function displayParents(person,people){
   let personMatch = people.filter(function(family){
@@ -254,7 +254,18 @@ displayPeople(personMatch);
 }
 //#endregion
 
+function displaySiblings(person, people){
+  let personMatch = people.filter(function(family){
+    if (findSiblings(family, person))
 
+    return true;
+    
+    else{
+    return false;
+    }  
+  })
+displayPeople(personMatch);
+}
 
 //Validation functions.
 //Functions to validate user input.
@@ -265,7 +276,7 @@ function findSiblings(person, people){
 
     return true;
   });
-  return sameParents.length != 0;
+  return sameParents.length > 0;
 }
 
 /////////////////////////////////////////////////////////////////
