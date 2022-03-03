@@ -223,22 +223,36 @@ function displayPerson(person){
 // displayFamily //
 function displayFamily(person, people){
   displaySpouse(person, people);
+  displayParents(person, people);
 }
 
 function displaySpouse(person,people){
   let personMatch = people.filter(function(family){
     if(person.currentSpouse === family.id){
+
       return true;
 
-  }  else {
+    } else {
+      return false;
+    }
+ })
+ displayPeople(personMatch);
+
+//find family [], that [] use it as an argument to displayPeople()
+}
+
+function displayParents(person,people){
+  let personMatch = people.filter(function(family){
+    if(person.parents.includes(family.id)){
+
+      return true;
+
+    } else {
       return false;
     }
   })
- personMatch = personMatch[0];
-
-alert(person.firstName + " "+ person.lastName + "'s Spouse:\n " + personMatch.firstName + ' ' + personMatch.lastName);
+displayPeople(personMatch);
 }
-
 //#endregion
 
 
