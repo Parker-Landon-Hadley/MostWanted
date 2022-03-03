@@ -222,6 +222,10 @@ function displayPerson(person){
 
 // displayFamily //
 function displayFamily(person, people){
+  displaySpouse(person, people);
+}
+
+function displaySpouse(person,people){
   let personMatch = people.filter(function(family){
     if(person.currentSpouse === family.id){
       return true;
@@ -230,8 +234,9 @@ function displayFamily(person, people){
       return false;
     }
   })
-  
-  alert(person.firstName + " "+ person.lastName + "'s Spouse:\n " + personMatch.firstName + ' ' + personMatch.lastName);
+ personMatch = personMatch[0];
+
+alert(person.firstName + " "+ person.lastName + "'s Spouse:\n " + personMatch.firstName + ' ' + personMatch.lastName);
 }
 
 //#endregion
